@@ -1,0 +1,110 @@
+/* Glassmorphism Variables - RECTIFIED FOR DARK THEME */
+:root {
+  --nav-bg: rgba(15, 23, 42, 0.4);      /* Subtle dark glass for top */
+  --nav-bg-scrolled: rgba(15, 23, 42, 0.9); /* Solid navy for scroll */
+  --nav-border: rgba(77, 181, 255, 0.1);
+  --primary-blue: #4db5ff;
+  --text-main: #f8fafc;
+  --text-dim: #94a3b8;
+}
+
+.nav {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 5rem;
+  
+  /* FIX: Background & Blur */
+  background: var(--nav-bg); 
+  border: 1px solid var(--nav-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  z-index: 2000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Scroll Effect - RECTIFIED */
+.nav.glass {
+  top: 0.7rem;
+  padding: 0.6rem 1.5rem;
+  background: var(--nav-bg-scrolled);
+  border-color: rgba(77, 181, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo & Text Visibility */
+.nav__logo h3 {
+  color: var(--text-main);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.nav__logo span {
+  color: var(--primary-blue); /* Changed from red to match your blue theme */
+}
+
+/* Menu Links */
+.nav__menu {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav__menu a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-dim); /* Use slate gray instead of #333 */
+  transition: 0.3s;
+}
+
+.nav__menu a:hover {
+  background: rgba(77, 181, 255, 0.1);
+  color: var(--text-main);
+}
+
+/* Active State */
+.nav__menu a.active {
+  background: var(--primary-blue);
+  color: #0f172a !important; /* Dark text on blue is much more attractive */
+  box-shadow: 0 4px 15px rgba(77, 181, 255, 0.4);
+}
+
+/* Hire Me Button */
+.hire__btn {
+  background: var(--primary-blue);
+  color: #0f172a !important;
+  padding: 0.6rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hire__btn:hover {
+  background: var(--text-main);
+  transform: scale(1.05);
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .nav__label, .nav__logo h3 {
+    display: none;
+  }
+  .nav {
+    width: fit-content;
+    bottom: 2rem;
+    top: auto; /* Moves to bottom on mobile */
+  }
+}

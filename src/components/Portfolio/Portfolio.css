@@ -1,0 +1,142 @@
+.portfolio {
+  padding: 8rem 0;
+}
+
+.portfolio h2 {
+  text-align: center;
+  color: #4db5ff;
+  margin-bottom: 3rem;
+}
+
+.portfolio h5 {
+  text-align: center;
+  color: #94a3b8;
+}
+
+/* Fix: Container size control */
+.portfolio_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 80% !important;
+  max-width: 1100px; /* Prevents cards from getting too wide */
+  margin: 0 auto;
+}
+
+/* Glassmorphism Item */
+.portfolio_item {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(77, 181, 255, 0.1);
+  transition: all 400ms ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio_item:hover {
+  background: rgba(77, 181, 255, 0.05);
+  border-color: #4db5ff;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Fix: Image sizing */
+.portfolio_item-image {
+  border-radius: 1.2rem;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 16 / 10; /* Keeps all images identical size */
+}
+
+.portfolio_item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.portfolio_item:hover .portfolio_item-image img {
+  transform: scale(1.1);
+}
+
+/* Category Badge */
+.portfolio_item-category {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 0.8rem;
+  background: rgba(15, 23, 42, 0.8);
+  color: #4db5ff;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.7rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(77, 181, 255, 0.2);
+}
+
+/* Content */
+.portfolio_item-content {
+  padding: 1.2rem 0.5rem 0.5rem;
+}
+
+.portfolio_item h3 {
+  color: #fff; /* High contrast text */
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio_tech {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* CTA Buttons */
+.portfolio_item-cta {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: auto;
+}
+
+.btn {
+  padding: 0.6rem 1rem;
+  border-radius: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid #4db5ff;
+  color: #4db5ff;
+  transition: 0.3s;
+  flex: 1;
+  text-align: center;
+}
+
+.btn:hover {
+  background: rgba(77, 181, 255, 0.1);
+  color: #fff;
+}
+
+.btn-primary {
+  background: #4db5ff;
+  color: #0f172a;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: #4db5ff !important;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+  .portfolio_container {
+    grid-template-columns: 1fr 1fr;
+    width: 90% !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .portfolio_container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
