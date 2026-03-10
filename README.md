@@ -1,16 +1,30 @@
-# React + Vite
+Live Preview :https://mithun-k-portfolio-v2.vercel.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Modern Glassmorphism PortfolioA sleek, responsive, and high-performance personal portfolio built with React.js. This project features a custom-designed Dark Mode UI using Glassmorphism principles to create a premium, layered aesthetic.
 
-Currently, two official plugins are available:
+✨ Key FeaturesGlassmorphic UI: Frosted glass effect on navigation and project cards using backdrop-filter.
+    Fully Responsive: Optimized for Desktop, Tablet, and Mobile with CSS Grid and Flexbox.
+    Interactive Navigation: A smart, floating navbar that changes state on scroll.
+    Uniform Project Display: Used aspect-ratio and object-fit to ensure all project thumbnails align perfectly.
+    Dynamic Tech Tags: Skill badges with hover animations and scale effects.
+    
+    🛠️ Built With Frontend: React.js
+                   Styling: Modern CSS3 (CSS Variables & BEM Methodology)
+                   Icons: React Icons
+                   Animations: CSS Transitions & Cubic-Bezier transforms
+Desktop ViewMobile View
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🚀 Getting StartedTo get a local copy up and running, follow these steps:1. PrerequisitesMake sure you have Node.js installed.
+2. Clone the repoBashgit clone https://github.com/mithun0773/mithun-k-portfolio-v2
+3. Install dependencies Bash npm install
+4. Run the projectBash npm run dev
+The application will open at http://localhost:5173
+.📂 Folder Structure Plaintext
+src/
+ ├── assets/          # Images, PDFs, and Icons
+ ├── components/      # Reusable UI components (Nav, Header, etc.)
+ │    ├── nav/
+ │    ├── header/
+ │    └── portfolio/
+ ├── App.jsx          # Main application logic
+ └── index.css        # Global styles and CSS variables
