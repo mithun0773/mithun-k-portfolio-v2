@@ -1,142 +1,520 @@
+/* ============================================================
+   PORTFOLIO SECTION  —  Mithun K Portfolio
+   Fonts: Syne (display) + DM Sans (body)
+   ============================================================ */
+
+:root {
+  --pf-bg:       #060b18;
+  --pf-bg2:      #0a1120;
+  --pf-blue:     #4db5ff;
+  --pf-purple:   #7c3aed;
+  --pf-teal:     #0fc4a7;
+  --pf-text:     #e2e8f0;
+  --pf-muted:    #64748b;
+  --pf-border:   rgba(255, 255, 255, 0.07);
+  --pf-card-bg:  rgba(11, 18, 36, 0.85);
+  --font-display:"Syne", sans-serif;
+  --font-body:   "DM Sans", sans-serif;
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================================
+   WRAPPER
+   ============================================================ */
 .portfolio {
-  padding: 8rem 0;
-}
-
-.portfolio h2 {
-  text-align: center;
-  color: #4db5ff;
-  margin-bottom: 3rem;
-}
-
-.portfolio h5 {
-  text-align: center;
-  color: #94a3b8;
-}
-
-/* Fix: Container size control */
-.portfolio_container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  width: 80% !important;
-  max-width: 1100px; /* Prevents cards from getting too wide */
-  margin: 0 auto;
-}
-
-/* Glassmorphism Item */
-.portfolio_item {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  padding: 1rem;
-  border-radius: 1.5rem;
-  border: 1px solid rgba(77, 181, 255, 0.1);
-  transition: all 400ms ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.portfolio_item:hover {
-  background: rgba(77, 181, 255, 0.05);
-  border-color: #4db5ff;
-  transform: translateY(-8px);
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
-}
-
-/* Fix: Image sizing */
-.portfolio_item-image {
-  border-radius: 1.2rem;
-  overflow: hidden;
   position: relative;
-  aspect-ratio: 16 / 10; /* Keeps all images identical size */
+  background: var(--pf-bg);
+  padding: 7rem 2rem 6rem;
+  overflow: hidden;
+  font-family: var(--font-body);
 }
 
-.portfolio_item-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.portfolio_item:hover .portfolio_item-image img {
-  transform: scale(1.1);
-}
-
-/* Category Badge */
-.portfolio_item-category {
+/* Ambient orbs */
+.pf__bg-orb {
   position: absolute;
-  bottom: 0.8rem;
-  left: 0.8rem;
-  background: rgba(15, 23, 42, 0.8);
-  color: #4db5ff;
-  padding: 0.3rem 0.7rem;
-  font-size: 0.7rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(77, 181, 255, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(120px);
+}
+.pf__bg-orb--1 {
+  width: 700px; height: 700px;
+  background: rgba(77, 181, 255, 0.055);
+  top: -200px; right: -150px;
+  animation: pfOrbDrift 16s ease-in-out infinite;
+}
+.pf__bg-orb--2 {
+  width: 500px; height: 500px;
+  background: rgba(124, 58, 237, 0.055);
+  bottom: -100px; left: -100px;
+  animation: pfOrbDrift 16s ease-in-out 8s infinite reverse;
+}
+@keyframes pfOrbDrift {
+  0%, 100% { transform: translate(0, 0); }
+  50%       { transform: translate(50px, 40px); }
 }
 
-/* Content */
-.portfolio_item-content {
-  padding: 1.2rem 0.5rem 0.5rem;
+/* Dot grid */
+.pf__bg-dot {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(77, 181, 255, 0.04) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
 }
 
-.portfolio_item h3 {
-  color: #fff; /* High contrast text */
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+.pf__inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
-.portfolio_tech {
-  color: #94a3b8;
-  font-size: 0.8rem;
-  margin-bottom: 1.5rem;
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.pf-reveal {
+  animation: pfFadeUp 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.pf-delay-1 { animation-delay: 0.1s; }
+.pf-delay-2 { animation-delay: 0.2s; }
+.pf-delay-3 { animation-delay: 0.32s; }
+
+@keyframes pfFadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* CTA Buttons */
-.portfolio_item-cta {
-  display: flex;
-  gap: 0.8rem;
-  margin-top: auto;
-}
-
-.btn {
-  padding: 0.6rem 1rem;
-  border-radius: 0.6rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-decoration: none;
-  border: 1px solid #4db5ff;
-  color: #4db5ff;
-  transition: 0.3s;
-  flex: 1;
+/* ============================================================
+   HEADER
+   ============================================================ */
+.pf__header {
   text-align: center;
+  margin-bottom: 2.5rem;
 }
 
-.btn:hover {
-  background: rgba(77, 181, 255, 0.1);
+.pf__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--pf-blue);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.pf__label-line {
+  display: inline-block;
+  width: 36px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--pf-blue));
+  border-radius: 1px;
+}
+.pf__label-line--r {
+  background: linear-gradient(90deg, var(--pf-blue), transparent);
+}
+
+.pf__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.8rem;
+}
+
+.pf__title-grad {
+  background: linear-gradient(135deg, var(--pf-blue), var(--pf-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pf__subtitle {
+  font-size: 0.97rem;
+  color: var(--pf-muted);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   FILTER TABS
+   ============================================================ */
+.pf__filters {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.pf__filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0.5rem 1.3rem;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--pf-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.01em;
+}
+
+.pf__filter:hover {
+  color: var(--pf-text);
+  border-color: rgba(77, 181, 255, 0.25);
+  background: rgba(77, 181, 255, 0.05);
+}
+
+.pf__filter--active {
+  background: linear-gradient(135deg, var(--pf-blue), #2563eb);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(77, 181, 255, 0.28);
+}
+
+.pf__filter--active:hover {
+  background: linear-gradient(135deg, var(--pf-blue), #2563eb);
   color: #fff;
 }
 
-.btn-primary {
-  background: #4db5ff;
-  color: #0f172a;
+.pf__filter-dot {
+  width: 5px; height: 5px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
 }
 
-.btn-primary:hover {
-  background: transparent;
-  color: #4db5ff !important;
+/* ============================================================
+   GRID
+   ============================================================ */
+.pf__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-bottom: 3.5rem;
 }
 
-/* Media Queries */
-@media screen and (max-width: 1024px) {
-  .portfolio_container {
-    grid-template-columns: 1fr 1fr;
-    width: 90% !important;
+/* ============================================================
+   CARD
+   ============================================================ */
+.pf__card {
+  position: relative;
+  background: var(--pf-card-bg);
+  border: 1px solid var(--pf-border);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  animation: pfFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  cursor: pointer;
+}
+
+.pf__card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(var(--card-color, 77 181 255), 0.35);
+  box-shadow:
+    0 0 0 1px rgba(77, 181, 255, 0.08),
+    0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Featured card highlight */
+.pf__card--featured {
+  border-color: rgba(77, 181, 255, 0.18);
+}
+
+.pf__card--featured::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--card-color, #4db5ff), transparent);
+  opacity: 0.6;
+}
+
+/* Featured badge */
+.pf__card-featured-badge {
+  position: absolute;
+  top: 10px; right: 10px;
+  z-index: 5;
+  background: rgba(5, 9, 26, 0.85);
+  border: 1px solid rgba(77, 181, 255, 0.3);
+  color: var(--pf-blue);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+/* ── Image ── */
+.pf__card-img-wrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.pf__card-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+  display: block;
+}
+
+.pf__card:hover .pf__card-img {
+  transform: scale(1.08);
+}
+
+/* Category pill */
+.pf__card-cat {
+  position: absolute;
+  bottom: 10px; left: 10px;
+  background: rgba(5, 9, 26, 0.82);
+  color: var(--card-color, var(--pf-blue));
+  border: 1px solid rgba(77, 181, 255, 0.18);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+/* ── Hover overlay ── */
+.pf__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 9, 26, 0.92);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+.pf__card-overlay--visible {
+  opacity: 1;
+}
+
+.pf__card-overlay-desc {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  text-align: center;
+  font-weight: 300;
+}
+
+.pf__card-overlay-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.pf__ov-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  letter-spacing: 0.02em;
+}
+
+.pf__ov-btn--gh {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+}
+.pf__ov-btn--gh:hover {
+  background: rgba(255, 255, 255, 0.13);
+  color: #fff;
+}
+
+.pf__ov-btn--live {
+  background: linear-gradient(135deg, var(--pf-blue), #2563eb);
+  border: none;
+  color: #fff;
+  box-shadow: 0 3px 12px rgba(77, 181, 255, 0.28);
+}
+.pf__ov-btn--live:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(77, 181, 255, 0.45);
+}
+
+/* ── Card body ── */
+.pf__card-body {
+  padding: 1.2rem 1.3rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.65rem;
+}
+
+.pf__card-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* Tech pills */
+.pf__card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.pf__tech-pill {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 100px;
+  background: rgba(77, 181, 255, 0.07);
+  border: 1px solid rgba(77, 181, 255, 0.13);
+  color: #7dd3fc;
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease;
+}
+
+.pf__card:hover .pf__tech-pill {
+  background: rgba(77, 181, 255, 0.12);
+}
+
+/* Bottom links */
+.pf__card-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.7rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pf__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.pf__link--gh {
+  color: var(--pf-muted);
+}
+.pf__link--gh:hover {
+  color: #e2e8f0;
+}
+
+.pf__link--live {
+  color: var(--pf-blue);
+}
+.pf__link--live:hover {
+  color: #93c5fd;
+  gap: 7px;
+}
+
+/* Bottom accent bar */
+.pf__card-accent {
+  height: 2px;
+  background: linear-gradient(90deg, var(--card-color, #4db5ff), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pf__card:hover .pf__card-accent {
+  opacity: 0.7;
+}
+
+/* ============================================================
+   FOOTER CTA
+   ============================================================ */
+.pf__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pf__footer p {
+  font-size: 0.9rem;
+  color: var(--pf-muted);
+}
+
+.pf__github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0.8rem 1.8rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--pf-text);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.pf__github-btn svg {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+}
+
+.pf__github-btn:hover {
+  background: rgba(77, 181, 255, 0.08);
+  border-color: rgba(77, 181, 255, 0.3);
+  color: var(--pf-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .pf__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media screen and (max-width: 600px) {
-  .portfolio_container {
+@media (max-width: 640px) {
+  .portfolio {
+    padding: 5rem 1.5rem 4rem;
+  }
+
+  .pf__grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.2rem;
+  }
+
+  .pf__title {
+    font-size: 1.9rem;
+  }
+
+  /* On mobile: show overlay desc as static text below image */
+  .pf__card-overlay {
+    display: none;
   }
 }

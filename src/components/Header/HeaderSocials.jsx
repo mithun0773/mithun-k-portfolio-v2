@@ -1,33 +1,48 @@
 import React from "react";
-import { FaDribbble, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+
+const SOCIAL_LINKS = [
+  {
+    id: 1,
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/mithunk1",
+    icon: <FaLinkedinIn />,
+    color: "#0a66c2",
+  },
+  {
+    id: 2,
+    name: "GitHub",
+    href: "https://github.com/mithun0773",
+    icon: <FaGithub />,
+    color: "#e2e8f0",
+  },
+  {
+    id: 3,
+    name: "LeetCode",
+    href: "https://leetcode.com/u/MithunKasi",
+    icon: <SiLeetcode />,
+    color: "#ea4c89",
+  },
+];
 
 const HeaderSocials = () => {
   return (
-    <div className="header_socials flex gap-4 text-2xl">
-      <a
-        href="https://www.linkedin.com/in/mithunk1"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn"
-      >
-        <FaLinkedin className="icon"/>
-      </a>
-      <a
-        href="https://github.com/mithun0773"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub"
-      >
-        <FaGithub className="icon" />
-      </a>
-      <a
-        href="https://dribbble.com/mithunm7n"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Dribble"
-      >
-        <FaDribbble className="icon"/>
-      </a>
+    <div className="header__socials">
+      {SOCIAL_LINKS.map(({ id, name, href, icon, color }) => (
+        <a
+          key={id}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="header__social-link"
+          style={{ "--soc-color": color }}
+          aria-label={name}
+        >
+          {icon}
+          <span className="header__social-tooltip">{name}</span>
+        </a>
+      ))}
     </div>
   );
 };

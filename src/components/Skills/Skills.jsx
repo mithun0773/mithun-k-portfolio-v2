@@ -16,9 +16,11 @@ const Experience = () => {
               "HTML",
               "CSS",
               "JavaScript",
+              "TypeScript",
               "React",
               "Tailwind CSS",
               "Bootstrap",
+              
             ].map((skill) => (
               <article key={skill} className="experience_details">
                 <BsPatchCheckFill className="experience_details-icon" />
