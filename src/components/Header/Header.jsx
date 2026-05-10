@@ -8,9 +8,11 @@ import { label } from "framer-motion/client";
 
 const ROLES = [
   "Full Stack Developer",
-  "MERN Stack Engineer",
-  "React Specialist",
+  "MERN Stack Developer",
+  "AI Integrated Web Developer",
+  "React.js Developer",
   "Node.js Developer",
+  "RAG System Builder",
   "Prompt Engineer"
 ];
 
@@ -22,6 +24,7 @@ const TECH = [
   { label: "MongoDB", icon: "🍃" },
   { label: "REST API", icon: "🔗" },
   { label: "Git", icon: "🐙" },
+  { label: "JWT Auth", icon: "🔐" },
   { label: "Prompt Eng", icon: "🤖" },
 ];
 
@@ -170,26 +173,27 @@ const Header = () => {
 
           {/* Description */}
           <p className="header__desc">
-            I craft <em>responsive & scalable</em> web applications using the{" "}
-            <em>MERN Stack</em> — turning complex problems into clean,
-            user-centered digital experiences.
+            I build scalable <em>full-stack web applications</em> and
+            <em> AI-powered systems</em> using the MERN stack, REST APIs, JWT
+            authentication, and Gemini AI — transforming complex ideas into
+            practical, user-focused digital products.
           </p>
 
           {/* Quick stats */}
           <div className="header__stats">
             <div className="header__stat">
-              <span className="header__stat-num">6+</span>
+              <span className="header__stat-num">5+</span>
               <span className="header__stat-label">Projects</span>
             </div>
             <div className="header__stat-divider" />
             <div className="header__stat">
-              <span className="header__stat-num">1+</span>
-              <span className="header__stat-label">Yr Exp</span>
+              <span className="header__stat-num">MERN + AI</span>
+              <span className="header__stat-label">Specialization</span>
             </div>
             <div className="header__stat-divider" />
             <div className="header__stat">
-              <span className="header__stat-num">10+</span>
-              <span className="header__stat-label">Skills</span>
+              <span className="header__stat-num">15+</span>
+              <span className="header__stat-label">Technologies</span>
             </div>
           </div>
 
@@ -257,8 +261,9 @@ const Header = () => {
           <div className="header__avatar">MK</div>
 
           <div className="header__card-name">Mithun K</div>
-          <div className="header__card-role">Junior Full Stack Developer</div>
-
+          <div className="header__card-role">
+            Full Stack Developer | MERN & AI
+          </div>
           <div className="header__card-divider" />
 
           <div className="header__card-rows">
@@ -294,7 +299,9 @@ const Header = () => {
               </div>
               <div>
                 <span className="header__card-key">Stack</span>
-                <strong className="header__card-val">FullStack/Mern</strong>
+                <strong className="header__card-val">
+                  MERN Stack + AI Integration
+                </strong>
               </div>
             </div>
             <div className="header__card-row">
@@ -327,7 +334,9 @@ const Header = () => {
               </div>
               <div>
                 <span className="header__card-key">Focus</span>
-                <strong className="header__card-val">DevOps,Cloud,GenAI</strong>
+                <strong className="header__card-val">
+                  MERN, REST APIs, GenAI
+                </strong>{" "}
               </div>
             </div>
           </div>
@@ -336,7 +345,7 @@ const Header = () => {
 
           <div className="header__avail">
             <span className="header__avail-dot" />
-            Available for hire
+            Open to Full Stack & MERN Roles
           </div>
         </div>
 
