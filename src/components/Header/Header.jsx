@@ -1,22 +1,28 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Document, Packer, Paragraph, TextRun } from "docx";
+
 import "./Header.css";
-import CV from "../../assets/mithuncv.pdf";
+import CV from "../../assets/Mithun_K_FullstackDev_resume.pdf";
 import HeaderSocials from "./HeaderSocials";
+import { label } from "framer-motion/client";
 
 const ROLES = [
   "Full Stack Developer",
   "MERN Stack Engineer",
   "React Specialist",
   "Node.js Developer",
+  "Prompt Engineer"
 ];
 
 const TECH = [
   { label: "React", icon: "⚛" },
+  { label: "JavaScript", icon: " 🟨" },
   { label: "Node.js", icon: "🟢" },
   { label: "Express", icon: "⚡" },
   { label: "MongoDB", icon: "🍃" },
   { label: "REST API", icon: "🔗" },
   { label: "Git", icon: "🐙" },
+  { label: "Prompt Eng", icon: "🤖" },
 ];
 
 const Header = () => {
@@ -172,7 +178,7 @@ const Header = () => {
           {/* Quick stats */}
           <div className="header__stats">
             <div className="header__stat">
-              <span className="header__stat-num">5+</span>
+              <span className="header__stat-num">6+</span>
               <span className="header__stat-label">Projects</span>
             </div>
             <div className="header__stat-divider" />
@@ -288,7 +294,7 @@ const Header = () => {
               </div>
               <div>
                 <span className="header__card-key">Stack</span>
-                <strong className="header__card-val">MERN</strong>
+                <strong className="header__card-val">FullStack/Mern</strong>
               </div>
             </div>
             <div className="header__card-row">
@@ -305,7 +311,7 @@ const Header = () => {
               </div>
               <div>
                 <span className="header__card-key">Experience</span>
-                <strong className="header__card-val">1+ Year</strong>
+                <strong className="header__card-val">Fresher</strong>
               </div>
             </div>
             <div className="header__card-row">
@@ -321,7 +327,7 @@ const Header = () => {
               </div>
               <div>
                 <span className="header__card-key">Focus</span>
-                <strong className="header__card-val">Full Stack Dev</strong>
+                <strong className="header__card-val">DevOps,Cloud,GenAI</strong>
               </div>
             </div>
           </div>

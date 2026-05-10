@@ -38,41 +38,43 @@ const useInView = (threshold = 0.15) => {
 
 /* ── Data ── */
 const STATS = [
-  { num: "5+", label: "Projects Built", icon: <FiCode /> },
-  { num: "MERN", label: "Stack Focus", icon: <FiZap /> },
-  { num: "1+", label: "Year Learning", icon: <FiTarget /> },
-  { num: "10+", label: "Technologies", icon: <FiUsers /> },
+  { num: "5+", label: "Production Projects", icon: <FiCode /> },
+  { num: "MERN + AI", label: "Core Specialization", icon: <FiZap /> },
+  { num: "2026", label: "MCA Graduate", icon: <FiTarget /> },
+  { num: "15+", label: "Technologies Used", icon: <FiUsers /> },
 ];
 
 const SKILLS = [
-  { name: "React.js", pct: 88, color: "#4db5ff" },
-  { name: "Node.js", pct: 80, color: "#68d391" },
-  { name: "MongoDB", pct: 75, color: "#48bb78" },
-  { name: "Express.js", pct: 78, color: "#9f7aea" },
-  { name: "JavaScript", pct: 85, color: "#f6e05e" },
-  { name: "Tailwind CSS", pct: 82, color: "#76e4f7" },
+  { name: "React.js", pct: 90, color: "#4db5ff" },
+  { name: "JavaScript", pct: 88, color: "#f6e05e" },
+  { name: "Node.js", pct: 82, color: "#68d391" },
+  { name: "Express.js", pct: 80, color: "#9f7aea" },
+  { name: "MongoDB", pct: 78, color: "#48bb78" },
+  { name: "REST APIs", pct: 84, color: "#f97316" },
+  { name: "Gemini AI", pct: 72, color: "#818cf8" },
+  { name: "Tailwind CSS", pct: 85, color: "#76e4f7" },
 ];
 
 const TRAITS = [
   {
     icon: <FiCode />,
-    title: "Clean Code",
-    desc: "Readable, maintainable, well-structured code is non-negotiable.",
+    title: "Full Stack Development",
+    desc: "Building scalable MERN applications with responsive frontend interfaces and secure backend systems.",
   },
   {
     icon: <FiZap />,
-    title: "Fast Learner",
-    desc: "I pick up new technologies quickly and apply them immediately.",
+    title: "AI Integration",
+    desc: "Developing AI-powered applications using Gemini AI, RAG pipelines, vector embeddings, and prompt engineering.",
   },
   {
     icon: <FiUsers />,
-    title: "Team Player",
-    desc: "Thrive in collaborative environments with clear communication.",
+    title: "Problem Solving",
+    desc: "Focused on solving real-world problems through practical products, clean architecture, and efficient APIs.",
   },
   {
     icon: <FiTarget />,
-    title: "Detail Focused",
-    desc: "Pixel-perfect UI and robust logic go hand in hand.",
+    title: "Growth Mindset",
+    desc: "Continuously learning modern technologies and improving development practices through hands-on projects.",
   },
 ];
 
@@ -107,20 +109,31 @@ const About = () => {
           {/* Bio Section */}
           <div className="about__bio-card">
             <p>
-              I'm <strong>Mithun K</strong> — an MCA student and aspiring{" "}
-              <strong>Full Stack Developer</strong> based in Chennai. I build
-              responsive, practical web applications with a sharp eye for UI and
-              solid backend logic.
+              I'm <strong>Mithun K</strong>, an MCA student and aspiring{" "}
+              <strong>Full Stack Developer</strong> from Chennai specializing in{" "}
+              <strong>MERN stack</strong> and{" "}
+              <strong>AI-integrated web applications</strong>.
             </p>
+
             <p>
-              My stack of choice is <em>MERN</em>. I'm actively seeking{" "}
-              <em>entry-level roles</em> where I can contribute and grow
-              alongside high-performing teams.
+              I have built and deployed multiple production-style projects
+              including RAG-powered AI systems, authentication dashboards,
+              economic analytics platforms, and resume analysis tools using
+              React, Node.js, MongoDB, REST APIs, and Gemini AI.
             </p>
+
+            <p>
+              My focus is on building scalable applications with clean UI,
+              secure backend architecture, and practical real-world
+              functionality while continuously improving my problem-solving and
+              system design skills.
+            </p>
+
             <div className="about__bio-actions">
               <a href="#contact" className="btn btn--primary">
                 <FiMail /> Let's Talk
               </a>
+
               <a href="#portfolio" className="btn btn--outline">
                 View Projects <FiArrowRight />
               </a>

@@ -1,91 +1,123 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Portfolio.css";
-import IMG1 from "../../assets/portfolio1.jpg";
-import IMG2 from "../../assets/portfolio2.jpg";
-import IMG3 from "../../assets/portfolio3.jpg";
+import IMG1 from "../../assets/decisionrag.png";
+import IMG2 from "../../assets/crypto.png";
+import IMG3 from "../../assets/ecopro.png";
+import IMG4 from "../../assets/auth.png";
+import IMG5 from "../../assets/resumeanalyse.png";
+import IMG6 from "../../assets/portfolio.png";
 
 /* ── Project data — 6 cards ── */
 const PROJECTS = [
   {
     id: 1,
     image: IMG1,
-    title: "Weather App",
-    category: "Web App",
-    filter: "frontend",
-    description:
-      "Real-time weather dashboard with city search, 5-day forecast, and dynamic backgrounds based on conditions.",
-    tech: ["React", "OpenWeather API", "CSS3"],
-    github: "https://github.com/mithun0773/Weather-API.git",
-    demo: "https://weather-api-port.netlify.app/",
-    featured: false,
-    color: "#4db5ff",
-  },
-  {
-    id: 2,
-    image: IMG2,
-    title: "Auth Dashboard",
-    category: "Fullstack",
+    title: "Decision-Based RAG System",
+    category: "AI Full Stack App",
     filter: "fullstack",
     description:
-      "Full-stack authentication system with JWT, role-based access, Redux state management, and a clean admin panel.",
-    tech: ["MERN", "JWT", "Redux", "Tailwind"],
+      "AI-powered Retrieval-Augmented Generation (RAG) system that analyzes user queries, retrieves relevant documents, and generates context-aware responses using Gemini AI.",
+    tech: ["React", "Node.js", "Express.js", "MongoDB", "Gemini AI"],
+    github: "https://github.com/mithun0773",
+    demo: "https://decisionsystemrag.netlify.app/",
+    featured: true,
+    color: "#4db5ff",
+  },
+
+  {
+    id: 2,
+    image: IMG4,
+    title: "Auth Dashboard",
+    category: "Full Stack App",
+    filter: "fullstack",
+    description:
+      "Secure authentication dashboard with JWT-based login, role-based authorization, protected routes, Redux state management, and admin analytics panel.",
+    tech: [
+      "React",
+      "Redux Toolkit",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Tailwind CSS",
+    ],
     github: "https://github.com/mithun0773/auth-fullstack-dashboard.git",
     demo: "https://auth-dashboard-demo.netlify.app",
     featured: true,
     color: "#7c3aed",
   },
+
   {
     id: 3,
-    image: IMG3,
-    title: "Job Analyzer",
-    category: "Utility",
-    filter: "frontend",
-    description:
-      "Analyzes job postings and visualizes skill demand trends using interactive Chart.js graphs and REST API data.",
-    tech: ["React", "REST API", "Chart.js"],
-    github: "https://github.com/mithun0773/job-analyzer",
-    demo: "https://auth-dashboard-demo.netlify.app",
-    featured: false,
-    color: "#0fc4a7",
-  },
-  {
-    id: 4,
-    image: IMG1,
-    title: "E-Commerce Store",
-    category: "Fullstack",
+    image: IMG5,
+    title: "Resume & Job Analyzer",
+    category: "AI Career Platform",
     filter: "fullstack",
     description:
-      "Complete shopping platform with cart management, Razorpay payment integration, and an admin product panel.",
-    tech: ["MERN", "Razorpay", "Cloudinary"],
+      "AI-driven resume and job description analyzer that compares skills, identifies missing keywords, and visualizes job market trends with interactive charts.",
+    tech: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Chart.js",
+      "REST API",
+      "Gemini AI",
+    ],
     github: "https://github.com/mithun0773",
-    demo: "#",
+    demo: "https://interview-analyser-frontend.vercel.app",
+    featured: true,
+    color: "#0fc4a7",
+  },
+
+  {
+    id: 4,
+    image: IMG3,
+    title: "EcoPro",
+    category: "Economy Based",
+    filter: "fullstack",
+    description:
+      "Full-featured MERN e-commerce platform with product management, shopping cart, secure authentication, Razorpay payment integration, and admin dashboard.",
+    tech: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Razorpay",
+      "Chart.js",
+      "Tailwind CSS",
+    ],
+    github: "https://github.com/mithun0773/EcoPro-react.git",
+    demo: "https://ecoprov2.netlify.app/",
     featured: true,
     color: "#f59e0b",
   },
+
   {
     id: 5,
     image: IMG2,
-    title: "Chat Application",
-    category: "Fullstack",
-    filter: "fullstack",
+    title: "CryptoSlices",
+    category: "Crypto Tracking Platform",
+    filter: "frontend",
     description:
-      "Real-time messaging app with Socket.io rooms, online presence indicators, and end-to-end JWT security.",
-    tech: ["MERN", "Socket.io", "JWT"],
-    github: "https://github.com/mithun0773",
-    demo: "#",
+      "Cryptocurrency tracking platform providing real-time market prices, trends, and analytics with responsive UI and live API integration.",
+    tech: ["React", "REST API", "Chart.js", "CSS3"],
+    github: "https://github.com/mithun0773/crypto-place",
+    demo: "https://cryptoslices.netlify.app/",
     featured: false,
     color: "#ec4899",
   },
+
   {
     id: 6,
-    image: IMG3,
+    image: IMG6,
     title: "Portfolio v2",
-    category: "Web App",
+    category: "Personal Portfolio",
     filter: "frontend",
     description:
-      "This very portfolio — built with React, featuring smooth animations, scroll-reveal, and a fully responsive layout.",
-    tech: ["React", "CSS3", "Vercel"],
-    github: "https://github.com/mithun0773",
+      "Modern responsive developer portfolio built with React featuring smooth animations, project showcases, responsive layouts, and interactive UI effects.",
+    tech: ["React", "Framer Motion", "CSS3", "Vercel"],
+    github: "https://github.com/mithun0773/mithun-k-portfolio-v2.git",
     demo: "https://mithun-k-portfolio-v2.vercel.app",
     featured: false,
     color: "#4db5ff",
@@ -94,10 +126,9 @@ const PROJECTS = [
 
 const FILTERS = [
   { key: "all", label: "All Projects" },
-  { key: "fullstack", label: "Fullstack" },
+  { key: "fullstack", label: "Full Stack" },
   { key: "frontend", label: "Frontend" },
 ];
-
 /* ── useInView ── */
 const useInView = (threshold = 0.12) => {
   const ref = useRef(null);

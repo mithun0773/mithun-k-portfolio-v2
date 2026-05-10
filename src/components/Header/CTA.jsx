@@ -1,5 +1,5 @@
 import React from "react";
-import CV from "../../assets/mithuncv.pdf";
+import CV from "../../assets/mithunk.docx";
 import { FiDownload, FiSend } from "react-icons/fi"; // Using Feather icons for a cleaner look
 
 const CTA = () => {
